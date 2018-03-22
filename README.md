@@ -15,7 +15,7 @@ In particular, the app will display all Toronto houses where the user will query
 
 **Usage Instructions**:
 
-The app is available via web browser at [kippmr.com/esri-syour-house(http://www.kippmr.com/esri-your-house/) and operates on mobile and desktop devices.
+The app is available via web browser at [kippmr.com/esri-syour-house](http://www.kippmr.com/esri-your-house/) and operates on mobile and desktop devices.
 Instructional video on using the app: [Using Social Bikes for Biking Around Toronto](https://youtu.be/3iMuzuwukKc)
 
 App Characteristics:
