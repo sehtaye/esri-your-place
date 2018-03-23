@@ -1,6 +1,6 @@
 Your Place: 
 =============
-A 2017 ECCE App Challenge Entry
+A 2018 ECCE App Challenge Entry
 -------------------------------
 **Team Members**
 
@@ -15,29 +15,31 @@ In particular, the app will display all Toronto houses where the user will query
 
 **Usage Instructions**:
 
-The app is available via web browser at [kippmr.com/esri-syour-house](http://www.kippmr.com/esri-your-house/) and operates on mobile and desktop devices.
-Instructional video on using the app: [Using Social Bikes for Biking Around Toronto](https://youtu.be/3iMuzuwukKc)
+The app is available via web browser at [kippmr.com/esri-your-house](http://www.kippmr.com/esri-your-house/) and operates on mobile and desktop devices.
+Instructional video on using the app: [WE DO NOT HAVE A VIDEO YET](https://youtu.be/3iMuzuwukKc)
 
 App Characteristics:
 --------------------
-Our app contains the location of all the Toronto Bike Share hubs in the available area along with basic information like hub name and capacity, found through Toronto Bike Sharing open data. The existing bike sharing app that we obtained this data from contains the locations of each hub and the number of bicycles and docks available, but does not show suggested routes for users or members to take from hub to hub.
+Our app contains listings of homes in the City of Toronto listed for sale on the Royal LePage website worth $100,000 and $2,000,000 along with their lat/long coordinates, price, number of bathrooms/bedrooms, building type, address, and link to the actual listing. The existing Royal LePage website lacks the ability to find preferred homes for the user to purchase based on importance of closeness to schools and hospitals.
 
-We have improved on this by creating a Toronto Bikeways network dataset by taking Toronto open transportation data and removing any roads or pathways that bikes are not permitted on, with priority routes based on designated bicycle infrastructure and recommended street routes. This was uploaded to an ESRI ArcGIS Server as a Network Analysis service, allowing us to generate routes through this Bikeways network. This allows us to find the closest origin hub to a user’s location and generate routes to any destination hub that only use bike-friendly routes, avoiding dangerous roads and optimizing their cycling experience. The cycling distance between the hubs is also calculated using the Measure tool and pops up on-screen.
+We have improved on this my using open data provided by the City of Toronto to generate overlapping maps of closeness to schools and hospitals. This was uploaded to an ESRI ArcGIS Server as a Network Analysis serice, allowing us to query the service with the user's selected filters and find the appropriate number of homes to that the user would like most from their schools and hospitals priority slider. Then we use those house points to populate a FeatureLayer from the ArcGIS JS Web API that the user can see and click on to learn more information about via a pop-up of the selected home.
 
 Data Sources:
 -------------
-* [Toronto Bike Share Hub Data](https://feeds.bikesharetoronto.com/stations/stations.xml)
-* [Toronto Road Network](http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=9ecd5f9cd70bb210VgnVCM1000003dd60f89RCRD&vgnextchannel=1a66e03bb8d1e310VgnVCM10000071d60f89RCRD)
-* [Toronto Ward Shapefile](http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=71d9c7e6e34b6410VgnVCM10000071d60f89RCRD)
-* [Canadian Water Bodies Shapefile](http://geogratis.gc.ca/api/en/nrcan-rncan/ess-sst/87066e9a-94ee-680a-b1ba-591f4688db7d.html)
+* [Data Source One](https://feeds.bikesharetoronto.com/stations/stations.xml)
+* [Data Source  Two](http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=9ecd5f9cd70bb210VgnVCM1000003dd60f89RCRD&vgnextchannel=1a66e03bb8d1e310VgnVCM10000071d60f89RCRD)
+* [Data Source Three](http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=71d9c7e6e34b6410VgnVCM10000071d60f89RCRD)
+* [Royal LePage website listings](http://www.royallepage.ca/en/)
 
 Limits and Assumptions:
 -----------------------
-* Assumes that the bicycle count at a bike hub is always greater than zero due to working with static data, which leads to a limitation that the app is unable to report the correct number of bicycles at a bike hub. Solution: use dynamic data provided by Toronto rather than static.
-* The app currently operates in the Downtown Toronto / East York area due to the limited availability of Bike Share Toronto bike hubs placed throughout the city. Solution: the application will update once more bike hubs are installed and recorded.
+* To remove any outliers, any homes listed at below $100,000 and greater than $2,000,000 were removed from our dataset. Ideally the data will contain accurate data from any price range.
+* The app currently only uses listing posted by Royal LePage because other realty companies have users agree not to use their data for purposes other than viewing. In the future we would like this app to include listings by more than one realtor by partnerships.
+* Homes may only be located within Toronto at the moment due to keeping the scale of the application low to ensure quick development of the proof-of-concept as well as simplify the collection of realtor listings.
 
 Improvements:
 -------------
-By computing route with additional variables to base route preference (ie. slope gradient, traffic volumes, traffic lights, and turn frequencies) the app could more accurately display the optimal route.
+* Finding more datasets to further refine our maps could add more filters for the user to refine their search for a new home. Such as entertainment, parks, and restaurants.
+* Adding route calculations to where a home selected is from the user's workplace (that the user would enter themselves)
 
-**Disclaimer**: *Social Bikes is not affiliated with any of the organisations or programs present in the app. The app was made strictly for educational purposes in conjunction with the 2017 ECCE App Challenge. This app is a prototype and all calculations are purely estimates. The app was tested on and works with Chrome and Firefox web browsers.*
+**Disclaimer**: *Your Place is not affiliated with any of the organisations or programs present in the app. The app was made strictly for educational purposes in conjunction with the 2018 ECCE App Challenge. This app is a prototype and all calculations are purely estimates. The app was tested on and works with Chrome and Firefox web browsers.*
